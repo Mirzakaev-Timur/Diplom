@@ -16,22 +16,22 @@ public class DataHelper {
         return String.format("%05d", localDate.getMonthValue());
     }
 
-    private static String getBygoneMonth() {
-        LocalDate localDate = LocalDate.now();
-        int month = localDate.minusMonths(1).getMonthValue();
-        return String.format("%05d", month);
-    }
+//    private static String getBygoneMonth() {
+//        LocalDate localDate = LocalDate.now();
+//        int month = localDate.minusMonths(1).getMonthValue();
+//        return String.format("%05d", month);
+//    }
 
     private static String getYear() {
         DateFormat df = new SimpleDateFormat("yy");
         return df.format(Calendar.getInstance().getTime());
     }
 
-    private static String getBygoneYear() {
-        LocalDate localDate = LocalDate.now();
-        int year = localDate.minusYears(1).getYear();
-        return String.format("%05d", year);
-    }
+//    private static String getBygoneYear() {
+//        LocalDate localDate = LocalDate.now();
+//        int year = localDate.minusYears(1).getYear();
+//        return String.format("%05d", year);
+//    }
 
     private static String getName() {
         Faker faker = new Faker();
@@ -84,13 +84,13 @@ public class DataHelper {
         return new CardInfo(getDeclinedCardNumber(), "13", getYear(), getName(), getCvc());
     }
 
-    public static CardInfo getBygoneMonthApprovedCard() {
-        return new CardInfo(getApprovedCardNumber(), getBygoneMonth(), getYear(), getName(), getCvc());
-    }
-
-    public static CardInfo getBygoneMonthDeclinedCard() {
-        return new CardInfo(getDeclinedCardNumber(), getBygoneMonth(), getYear(), getName(), getCvc());
-    }
+//    public static CardInfo getBygoneMonthApprovedCard() {
+//        return new CardInfo(getApprovedCardNumber(), getBygoneMonth(), getYear(), getName(), getCvc());
+//    }
+//
+//    public static CardInfo getBygoneMonthDeclinedCard() {
+//        return new CardInfo(getDeclinedCardNumber(), getBygoneMonth(), getYear(), getName(), getCvc());
+//    }
 
     public static CardInfo getIncompleteField() {
         return new CardInfo("4444 4444 4444 444", "1", "2", "A", "11");
@@ -112,11 +112,11 @@ public class DataHelper {
         return new CardInfo(getDeclinedCardNumber(), getMonth(), getYear(), "I", getCvc());
     }
 
-    public static CardInfo getBygoneYearApprovedCard() {
-        return new CardInfo(getApprovedCardNumber(), getMonth(), getBygoneYear(), getName(), getCvc());
-    }
-
-    public static CardInfo getBygoneYearDeclinedCard() {
-        return new CardInfo(getApprovedCardNumber(), getMonth(), getBygoneYear(), getName(), getCvc());
-    }
+//    public static CardInfo getBygoneYearApprovedCard() {
+//        return new CardInfo(getApprovedCardNumber(), getMonth(), getBygoneYear(), getName(), getCvc());
+//    }
+//
+//    public static CardInfo getBygoneYearDeclinedCard() {
+//        return new CardInfo(getApprovedCardNumber(), getMonth(), getBygoneYear(), getName(), getCvc());
+//    }
 }
