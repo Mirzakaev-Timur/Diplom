@@ -120,4 +120,3 @@ public class DataHelper {
         return new CardInfo(getApprovedCardNumber(), getMonth(), getBygoneYear(), getName(), getCvc());
     }
 }
-
