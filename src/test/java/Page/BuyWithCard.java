@@ -1,9 +1,7 @@
 package Page;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.CardInfo;
-import org.openqa.selenium.By;
 
 import java.time.Duration;
 
@@ -14,13 +12,13 @@ import static com.codeborne.selenide.Selenide.$$;
 
 
 public class BuyWithCard {
-    private SelenideElement heading = $$("h3").find(Condition.text("Оплата по карте"));
-    private final SelenideElement numberCard = $(By.linkText("Номер карты"));
-    private final SelenideElement monthRelease = $(By.linkText("Месяц"));
-    private final SelenideElement yearRelease = $(By.linkText("Год"));
-    private final SelenideElement owner = $(By.linkText("Владелец"));
-    private final SelenideElement codeSecurity = $(By.linkText("CVC/CVV"));
-    private final SelenideElement button = $$("button").find(exactText("Продолжить"));
+    private SelenideElement heading = $$(".button").find(exactText("Купить"));
+    private SelenideElement numberCard = $("input[type=\"text\"][placeholder=\"0000 0000 0000 0000\"]");
+    private SelenideElement monthRelease = $("input[type=\"text\"][placeholder=\"08\"]");
+    private SelenideElement yearRelease = $("input[type=\"text\"][placeholder=\"22\"]");
+    private SelenideElement owner = $$(".input").find(exactText("Владелец")).$(".input__control");
+    private SelenideElement codeSecurity = $("input[type=\"text\"][placeholder=\"999\"]");
+    private SelenideElement button = $$(".button").find(exactText("Продолжить"));
 
     private final SelenideElement statusOk = $(".notification_status_ok");
     private final SelenideElement statusError = $(".notification_status_error");
