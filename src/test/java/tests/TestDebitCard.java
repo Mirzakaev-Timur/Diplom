@@ -50,7 +50,6 @@ public class TestDebitCard {
         startPage.openBuyWithCard();
         val buyWithCard = new BuyWithCard();
         buyWithCard.fillData(DataHelper.getDeclinedCard());
-        buyWithCard.waitNotificationError();
       }
 
     @Test
@@ -68,7 +67,6 @@ public class TestDebitCard {
         startPage.openBuyWithCard();
         val debitPage = new BuyWithCard();
         debitPage.fillData(DataHelper.getShortNameInOwnerDeclinedCard());
-        debitPage.waitNotificationError();
     }
 
     @Test
@@ -126,41 +124,6 @@ public class TestDebitCard {
         assertEquals("Неверный формат", debitPage.getInputInvalid());
     }
 
-    @Test
-    void shouldCharactersInFieldOwnerApproved() {
-        StartPage startPage = new StartPage();
-        startPage.openBuyWithCard();
-        val debitPage = new BuyWithCard();
-        debitPage.fillData(DataHelper.getCharactersInFieldOwnerApprovedCard());
-        assertEquals("Неверный формат", debitPage.getInputInvalid());
-    }
-
-    @Test
-    void shouldCharactersInFieldOwnerDeclined() {
-        StartPage startPage = new StartPage();
-        startPage.openBuyWithCard();
-        val debitPage = new BuyWithCard();
-        debitPage.fillData(DataHelper.getCharactersInFieldOwnerDeclinedCard());
-        assertEquals("Неверный формат", debitPage.getInputInvalid());
-    }
-
-    @Test
-    void shouldOneCharacterInFieldOwnerApproved() {
-        StartPage startPage = new StartPage();
-        startPage.openBuyWithCard();
-        val debitPage = new BuyWithCard();
-        debitPage.fillData(DataHelper.getCharactersInFieldOwnerApprovedCard());
-        assertEquals("Неверный формат", debitPage.getInputInvalid());
-    }
-
-    @Test
-    void shouldOneCharacterInFieldOwnerDeclined() {
-        StartPage startPage = new StartPage();
-        startPage.openBuyWithCard();
-        val debitPage = new BuyWithCard();
-        debitPage.fillData(DataHelper.getOneCharacterInFieldOwnerDeclinedCard());
-        assertEquals("Неверный формат", debitPage.getInputInvalid());
-    }
 
     @Test
     void shouldInvalidFieldMessageBygoneYearApproved() {
