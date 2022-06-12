@@ -43,8 +43,7 @@ public class TestCreditCard {
         val buyWithCredit = new BuyWithCredit();
         buyWithCredit.fillData(DataHelper.getApprovedCard());
         buyWithCredit.waitNotificationOk();
-        assertEquals("APPROVED", SQL.getCreditStatus());
-    }
+       }
 
     @Test
     void shouldCreditByCardWithStatusDecline() {
@@ -53,7 +52,6 @@ public class TestCreditCard {
         val buyWithCredit = new BuyWithCredit();
         buyWithCredit.fillData(DataHelper.getDeclinedCard());
         buyWithCredit.waitNotificationError();
-        assertEquals("DECLINED", SQL.getCreditStatus());
     }
 
     @Test
@@ -101,23 +99,23 @@ public class TestCreditCard {
         buyWithCredit.fillData(DataHelper.getInvalidMonthDeclinedCard());
         assertEquals("Неверно указан срок действия карты", buyWithCredit.getInputInvalid());
     }
-    // @Test
-//    void shouldInvalidFieldMessageBygoneMonthApproved() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCredit();
-//        val buyWithCredit = new BuyWithCredit();
-//        buyWithCredit.fillData(DataHelper.getBygoneMonthApprovedCard());
-//        assertEquals("Неверно указан срок действия карты", buyWithCredit.getInputInvalid());
-//    }
-//
-//    @Test
-//    void shouldInvalidFieldMessageBygoneMonthDeclined() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCredit();
-//        val buyWithCredit = new BuyWithCredit();
-//        buyWithCredit.fillData(DataHelper.getBygoneMonthDeclinedCard());
-//        assertEquals("Неверно указан срок действия карты", buyWithCredit.getInputInvalid());
-//    }
+     @Test
+    void shouldInvalidFieldMessageBygoneMonthApproved() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCredit();
+        val buyWithCredit = new BuyWithCredit();
+        buyWithCredit.fillData(DataHelper.getBygoneMonthApprovedCard());
+        assertEquals("Неверно указан срок действия карты", buyWithCredit.getInputInvalid());
+    }
+
+    @Test
+    void shouldInvalidFieldMessageBygoneMonthDeclined() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCredit();
+        val buyWithCredit = new BuyWithCredit();
+        buyWithCredit.fillData(DataHelper.getBygoneMonthDeclinedCard());
+        assertEquals("Неверно указан срок действия карты", buyWithCredit.getInputInvalid());
+    }
 
     @Test
     void shouldInvalidFieldMessageIncompleteField() {
@@ -164,22 +162,22 @@ public class TestCreditCard {
         assertEquals("Неверный формат", buyWithCredit.getInputInvalid());
     }
 
-//    @Test
-//    void shouldInvalidFieldMessageBygoneYearApprovedCard() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCredit();
-//        val buyWithCredit = new BuyWithCredit();
-//        buyWithCredit.fillData(DataHelper.getBygoneYearApprovedCard());
-//        assertEquals("Истёк срок действия карты", buyWithCredit.getInputInvalid());
-//    }
-//
-//    @Test
-//    void shouldInvalidFieldMessageBygoneYearDeclinedCard() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCredit();
-//        val buyWithCredit = new BuyWithCredit();
-//        buyWithCredit.fillData(DataHelper.getBygoneYearDeclinedCard());
-//        assertEquals("Истёк срок действия карты", buyWithCredit.getInputInvalid());
-//    }
+    @Test
+    void shouldInvalidFieldMessageBygoneYearApprovedCard() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCredit();
+        val buyWithCredit = new BuyWithCredit();
+        buyWithCredit.fillData(DataHelper.getBygoneYearApprovedCard());
+        assertEquals("Истёк срок действия карты", buyWithCredit.getInputInvalid());
+    }
+
+    @Test
+    void shouldInvalidFieldMessageBygoneYearDeclinedCard() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCredit();
+        val buyWithCredit = new BuyWithCredit();
+        buyWithCredit.fillData(DataHelper.getBygoneYearDeclinedCard());
+        assertEquals("Истёк срок действия карты", buyWithCredit.getInputInvalid());
+    }
 }
 

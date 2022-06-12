@@ -38,7 +38,7 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-    systemProperty 'sut.url', System.getProperty('sut.url', 'http://localhost:9090')
+    systemProperty 'sut.url', System.getProperty('sut.url', 'http://localhost:8080')
     systemProperty 'db.user', System.getProperty('db.user', 'app')
     systemProperty 'db.password', System.getProperty('db.password', 'pass')
     systemProperty 'db.url', System.getProperty('db.url')

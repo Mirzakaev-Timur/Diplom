@@ -42,8 +42,7 @@ public class TestDebitCard {
         val buyWithCard = new BuyWithCard();
         buyWithCard.fillData(DataHelper.getApprovedCard());
         buyWithCard.waitNotificationOk();
-        assertEquals("APPROVED", SQL.getDebitStatus());
-    }
+       }
 
     @Test
     void shouldDebitByCardWithDecline() {
@@ -52,8 +51,7 @@ public class TestDebitCard {
         val buyWithCard = new BuyWithCard();
         buyWithCard.fillData(DataHelper.getDeclinedCard());
         buyWithCard.waitNotificationError();
-        assertEquals("DECLINED", SQL.getDebitStatus());
-    }
+      }
 
     @Test
     void shouldShortNameInOwnerApproved() {
@@ -101,23 +99,23 @@ public class TestDebitCard {
         assertEquals("Неверно указан срок действия карты", debitPage.getInputInvalid());
     }
 
-//    @Test
-//    void shouldInvalidFieldMessageBygoneMonthApproved() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCard();
-//        val debitPage = new BuyWithCard();
-//        debitPage.fillData(DataHelper.getBygoneMonthApprovedCard());
-//        assertEquals("Неверно указан срок действия карты", debitPage.getInputInvalid());
-//    }
-//
-//    @Test
-//    void shouldInvalidFieldMessageBygoneMonthDeclined() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCard();
-//        val debitPage = new BuyWithCard();
-//        debitPage.fillData(DataHelper.getBygoneMonthDeclinedCard());
-//        assertEquals("Неверно указан срок действия карты", debitPage.getInputInvalid());
-//    }
+    @Test
+    void shouldInvalidFieldMessageBygoneMonthApproved() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCard();
+        val debitPage = new BuyWithCard();
+        debitPage.fillData(DataHelper.getBygoneMonthApprovedCard());
+        assertEquals("Неверно указан срок действия карты", debitPage.getInputInvalid());
+    }
+
+    @Test
+    void shouldInvalidFieldMessageBygoneMonthDeclined() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCard();
+        val debitPage = new BuyWithCard();
+        debitPage.fillData(DataHelper.getBygoneMonthDeclinedCard());
+        assertEquals("Неверно указан срок действия карты", debitPage.getInputInvalid());
+    }
 
     @Test
     void shouldInvalidFieldMessageIncompleteField() {
@@ -164,22 +162,22 @@ public class TestDebitCard {
         assertEquals("Неверный формат", debitPage.getInputInvalid());
     }
 
-//    @Test
-//    void shouldInvalidFieldMessageBygoneYearApproved() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCard();
-//        val debitPage = new BuyWithCard();
-//        debitPage.fillData(DataHelper.getBygoneYearApprovedCard());
-//        assertEquals("Истёк срок действия карты", debitPage.getInputInvalid());
-//    }
-//
-//    @Test
-//    void shouldInvalidFieldMessageBygoneYearDeclined() {
-//        StartPage startPage = new StartPage();
-//        startPage.openBuyWithCard();
-//        val debitPage = new BuyWithCard();
-//        debitPage.fillData(DataHelper.getBygoneYearDeclinedCard());
-//        assertEquals("Истёк срок действия карты", debitPage.getInputInvalid());
-//    }
+    @Test
+    void shouldInvalidFieldMessageBygoneYearApproved() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCard();
+        val debitPage = new BuyWithCard();
+        debitPage.fillData(DataHelper.getBygoneYearApprovedCard());
+        assertEquals("Истёк срок действия карты", debitPage.getInputInvalid());
+    }
+
+    @Test
+    void shouldInvalidFieldMessageBygoneYearDeclined() {
+        StartPage startPage = new StartPage();
+        startPage.openBuyWithCard();
+        val debitPage = new BuyWithCard();
+        debitPage.fillData(DataHelper.getBygoneYearDeclinedCard());
+        assertEquals("Истёк срок действия карты", debitPage.getInputInvalid());
+    }
 }
 
