@@ -4,7 +4,11 @@
 
 ---
 ## Документация
-[План по автоматизации дипломного проекта](https://github.com/Tima02121991/Diplom/blob/master/documentaion/Plan.md)
+[План по автоматизации дипломного проекта](https://github.com/Tima02121991/Diplom/blob/master/documentation/Plan.md)
+
+[Отчёт о проведённом тестировании](https://github.com/Tima02121991/Diplom/blob/master/documentation/Report.md)
+
+[Отчёт Allure](https://github.com/Tima02121991/Diplom/blob/master/documentation/allure.JPG)
 
 ---
 
@@ -41,24 +45,25 @@ Git, JDK 11, IntelliJ IDEA, Docker
 
 ---
 
-### 1. Запуск контейнеров
+### Запуск контейнеров
 
 1. Запустить необходимые базы данных (MySQL и PostgreSQL), а также NodeJS. Параметры для запуска хранятся в файле `docker-compose.yml`. Для запуска необходимо ввести в терминале команду:
 ```
 docker-compose up
 ```
-2. В новой вкладке терминала ввести следующую команду в зависимости от базы данных: -`
-java -jar .\aqa-shop.jar  -P:jdbc.url=jdbc:mysql://localhost:3306/app
+2. В новой вкладке терминала ввести следующую команду в зависимости от базы данных: 
+
+`java -jar .\aqa-shop.jar  -P:jdbc.url=jdbc:mysql://localhost:3306/app
 `   - для MySQL
 
 `java -jar .\aqa-shop.jar  -P:jdbc.url=jdbc:postgresql://localhost:5432/app
 ` - для PostgreSQL
 
-# Примечание
+## Примечание
 Запуск приложения осуществляется на порту 9090. Для изменения, необходимо в файле `application.properties` изменить значение `server.port`
 
 ## Запуск тестов
-В новой вкладке терминала ввести команду: - `gradlew clean test`
+В новой вкладке терминала ввести команду: `gradlew clean test`
 
 ## Перезапуск приложения и тестов
 Если необходимо перезапустить приложение и/или тесты (например, для другой БД), необходимо выполнить остановку работы в запущенных ранее вкладках терминала, нажав в них Ctrl+С
