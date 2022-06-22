@@ -12,7 +12,8 @@ public class SQL {
     static String user = System.getProperty("db.user");
     static String password = System.getProperty("db.password");
 
-    public static void clearData() {
+
+    public static void clearData() throws SQLException {
         val deleteOrderEntity = "DELETE FROM order_entity";
         val deletePaymentEntity = "DELETE FROM payment_entity";
         val deleteCreditRequestEntity = "DELETE FROM credit_request_entity";
@@ -24,32 +25,27 @@ public class SQL {
             runner.update(conn, deleteOrderEntity);
             runner.update(conn, deletePaymentEntity);
             runner.update(conn, deleteCreditRequestEntity);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
-    public static String getStatus(String query) {
-        val runner = new QueryRunner();
-        String data = "";
-        try (
-                val conn = DriverManager.getConnection(url, user, password
-                );
-        ) {
-            data = runner.query(conn, query, new ScalarHandler<>());
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public static String getStatus(String query) throws SQLException  {
+        String result = "";
+        var runner = new QueryRunner();
+        try
+                (var conn = DriverManager.getConnection(url, user, password)) {
+
+            result = runner.query(conn, query, new ScalarHandler<String>());
+            System.out.println(result);
+            return result;
         }
-        return data;
     }
 
-    public static String getDebitStatus() {
-        val statusSQL = "SELECT status FROM payment_entity;";
+    public static String getDebitStatus() throws SQLException {
+        val statusSQL = "SELECT status FROM payment_entity";
         return getStatus(statusSQL);
     }
 
-    public static String getCreditStatus() {
-        val statusSQL = "SELECT status FROM credit_request_entity;";
+    public static String getCreditStatus() throws SQLException {
+        val statusSQL = "SELECT status FROM credit_request_entity";
         return getStatus(statusSQL);
     }
 }
-

@@ -18,6 +18,7 @@ services:
           - MYSQL_USER=app
           - MYSQL_PASSWORD=pass
 
+
     postgresdb:
         image: postgres:latest
         ports:
