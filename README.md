@@ -8,8 +8,6 @@
 
 [Отчёт о проведённом тестировании](https://github.com/Tima02121991/Diplom/blob/master/documentation/Report.md)
 
-[Отчёт Allure](https://github.com/Tima02121991/Diplom/blob/master/documentation/allure.JPG)
-
 ---
 
 ## Описание приложения
