@@ -1,5 +1,6 @@
 package data;
 
+import lombok.SneakyThrows;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
@@ -27,7 +28,8 @@ public class SQL {
             runner.update(conn, deleteCreditRequestEntity);
         }
     }
-    public static String getStatus(String query) throws SQLException  {
+
+    public static String getStatus(String query) throws SQLException {
         String result = "";
         var runner = new QueryRunner();
         try
@@ -36,6 +38,16 @@ public class SQL {
             result = runner.query(conn, query, new ScalarHandler<String>());
             System.out.println(result);
             return result;
+        }
+    }
+
+    @SneakyThrows
+    public static int getAmountStatus() {
+        var runner = new QueryRunner();
+        try
+                (var conn = DriverManager.getConnection(url, user, password)) {
+            val amount = "SELECT amount FROM payment_entity";
+            return runner.query(conn, amount, new ScalarHandler<>());
         }
     }
 
@@ -48,4 +60,5 @@ public class SQL {
         val statusSQL = "SELECT status FROM credit_request_entity";
         return getStatus(statusSQL);
     }
+
 }
