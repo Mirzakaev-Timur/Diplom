@@ -8,6 +8,8 @@
 
 [Отчёт о проведённом тестировании](https://github.com/Tima02121991/Diplom/blob/master/documentation/Report.md)
 
+[Отчёт о проведённой автоматизации](https://github.com/Tima02121991/Diplom/blob/master/documentation/Summary.md)
+
 ---
 
 ## Описание приложения
